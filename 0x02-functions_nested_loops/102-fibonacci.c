@@ -20,11 +20,10 @@ int main(void)
 		nacci2 = add;
 
 
-		if (add == 49)
+		if (read == 49)
 			printf("\n");
 		else
 			printf(", ");
 	}
-	printf("\n");
 	return (0);
 }
