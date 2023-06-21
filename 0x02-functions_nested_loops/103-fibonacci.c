@@ -14,7 +14,7 @@ int main(void)
 	while (q + s < 4000000)
 	{
 		q += s;
-	if (q % 2 == 0)
+		if (q % 2 == 0)
 		add += q;
 		s = q - s;
 		++a;
