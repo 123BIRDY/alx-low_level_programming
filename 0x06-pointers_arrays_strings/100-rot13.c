@@ -3,27 +3,26 @@
 
 /**
  * rot13 - function that encodes a string using rot13
- * @y: string parameter to be encoded
- * Return: pointer to string
+ * @y: string to be encoded
+ * Return: encoded string
  */
 
 char *rot13(char *y)
 {
-	int v = 0;
+	int u, b;
+	char alph[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char rot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	while (y[v])
+	for (u = 0; y[u] != '\0'; u++)
 	{
-		while ((y[v] >= 97 && y[v] <= 122) || (y[v] >= 64 && y[v] <= 90))
+		for (b = 0; b < 52; b++)
 		{
-			if ((y[v] > 109 && y[v] <= 122) || (y[v] > 77 && y[v] <= 90))
+			if (y[u] == alph[b])
 			{
-				y[v] -= 13;
+				y[u] = rot[b];
 				break;
 			}
-			y[v] += 13;
-			break;
 		}
-		v++;
 	}
 	return (y);
 }
