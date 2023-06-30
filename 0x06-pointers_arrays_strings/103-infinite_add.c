@@ -70,7 +70,7 @@ void rev_string(char *b)
 		m++;
 	}
 	m--;
-	for (w = 0; w < m; w++, w--)
+	for (w = 0; w < m; w++, m--)
 	{
 		tem = *(b + w);
 		*(b + w) = *(b + m);
