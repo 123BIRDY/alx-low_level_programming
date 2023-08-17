@@ -12,7 +12,7 @@ void error_file(int source, int dest, char *argv[])
 {
 	if (source == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	if (dest == -1)
@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 	err_close = close(dest);
 	if (err_close == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close dec %d\n", source);
+		dprintf(STDERR_FILENO, "Error: Can't close desc %d\n", source);
 		exit(100);
 	}
 	return (0);
