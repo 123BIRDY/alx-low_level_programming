@@ -24,10 +24,10 @@ int *array_range(int min, int max)
 		return (NULL);
 	}
 
-	for (s = 0; s <= size; s++)
+	for (s = 0; s < size; s++)
 	{
 		/* Fill the array with values from min to max inclusive */
-		ind[s] = min++;
+		ind[s] = min + s;
 	}
 	return (ind);
 }
