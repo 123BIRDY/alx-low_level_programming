@@ -5,6 +5,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*
+ * Desc: the header file contains all the prototypes of this project
+ */
+
 /**
  * struct list_s - singly linked list
  * @str: string - (malloc'ed string)
