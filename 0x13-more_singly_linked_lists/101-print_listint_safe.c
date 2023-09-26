@@ -11,13 +11,16 @@ size_t print_listint_safe(const listint_t *head)
 	const listint_t *now, *safe;
 	size_t read = 0;
 
-	if (head == NULL || head->next == NULL)
+	if (!head || !head->next)
+	{
 		return (0);
+	}
 	now = head;
 	while (now)
 	{
 		printf("[%p] %d\n", (void *)now, now->n);
 		read++;
+
 		if (now > now->next) /* If pointer points to former node, break loop */
 		{
 			now = now->next;
