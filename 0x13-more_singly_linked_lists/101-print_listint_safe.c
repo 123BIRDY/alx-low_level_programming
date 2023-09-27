@@ -1,4 +1,51 @@
 #include "lists.h"
+#include <stdio.h>
+
+size_t listint_length(const listint_t *head);
+size_t print_listint_safe(const listint_t *head);
+
+/**
+ * listint_length - function that counts the number of unique
+ * nodes in a looped linked list
+ * @head: pointer to the head node
+ * Return: 0 if the list is not looped
+ */
+
+size_t listint_length(const listint_t *head)
+{
+	const listint_t *link, *list;
+	size_t node = 1;
+
+	if (head == NULL || head->next == NULL)
+		return (0);
+	link = head->next;
+	list = (head->next)->next;
+	while (list)
+	{
+		if (link == list)
+		{
+			link = head;
+			while (link != list)
+			{
+				node++;
+				link = link->next;
+				list = list->next;
+			}
+
+			link = link->next;
+			while (link != list)
+			{
+				node++;
+				link = link->next;
+			}
+			return (node);
+		}
+
+		link = link->next;
+		list = (list->next)->next;
+	}
+	return (0);
+}
 
 /**
  * print_listint_safe - function that prints a listint_t linked list
@@ -8,29 +55,26 @@
 
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *now, *safe;
-	size_t read = 0;
+	size_t node, ind = 0;
 
-	if (!head || !head->next)
-	{
-		return (0);
-	}
-	now = head;
-	while (now)
-	{
-		printf("[%p] %d\n", (void *)now, now->n);
-		read++;
+	node = listint_length(head);
 
-		if (now > now->next) /* If pointer points to former node, break loop */
+	if (node == 0)
+	{
+		for (; head != NULL; node++)
 		{
-			now = now->next;
-		}
-		else
-		{
-			safe = now->next;
-			printf("-> [%p] %d\n", (void *)safe, safe->n);
-			break;
+			printf("[%p] %d\n", (void *)head, head->n);
+			head = head->next;
 		}
 	}
-	return (read);
+	else
+	{
+		for (ind = 0; ind < node; ind++)
+		{
+			printf("[%p] %d\n", (void *)head, head->n);
+			head = head->next;
+		}
+		printf("-> [%p] %d\n", (void *)head, head->n);
+	}
+	return (node);
 }
