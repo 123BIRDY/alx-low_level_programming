@@ -8,27 +8,29 @@
 
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *now = *h, *elem;
+	listint_t *elem;
 	size_t read = 0;
+	int ind;
 
 	if (!h || !*h)
-		return (read);
-	while (now)
+		return (0);
+	while (*h)
 	{
-		elem = now; /* Set current node to placeholder */
-		now = now->next;
-		if (now <= now->next)
+		ind = *h - (*h)->next; /* Set current node to placeholder */
+		if (ind > 0)
 		{
+			elem = (*h)->next;
+			free(*h);
+			*h = elem;
+			read++;
+		}
+		else
+		{
+			free(*h);
 			*h = NULL;
 			read++;
 			break;
 		}
-		/* Move placeholder to next node */
-		elem = now->next;
-		now->next = NULL;
-		free(now);
-		now = elem;
-		read++;
 	}
 	*h = NULL;
 	return (read);
