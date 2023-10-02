@@ -3,6 +3,10 @@
 
 #define BUFFER_SIZE 1024
 
+/*
+ * Description: Header file for the project
+ */
+
 #include <fcntl.h>
 #include <stdio.h>
 #include <sys/types.h>
