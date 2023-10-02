@@ -1,11 +1,12 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#define BUFFER_SIZE 1024
-
 /*
- * Description: Header file for the project
+ * Description: Header file that contains
+ * all the prototypes and functions
  */
+
+#define BUFFER_SIZE 1024
 
 #include <fcntl.h>
 #include <stdio.h>
