@@ -6,6 +6,7 @@ void err_file(int file_from, int file_to, char *argv[]);
  * err_file - function to check errors in the file
  * @file_from: the source file
  * @file_to: the destination file
+ * @argv: the array of arguments
  * Return: void
  */
 
