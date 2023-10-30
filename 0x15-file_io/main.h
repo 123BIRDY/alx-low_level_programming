@@ -1,7 +1,8 @@
 #ifndef MAIN_H
-#define MAIN_h
+#define MAIN_H
 
-/* Description: This is the header file that contains all the prototypes
+/*
+ * Description: This is the header file that contains all the prototypes
  * for the functions in 0x15-file_io project
  */
 
